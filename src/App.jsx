@@ -1,15 +1,36 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Regions from './pages/Regions';
+import NotFound from './pages/NotFound';
+import HomeLayout from './layouts/HomeLayout';
+import OtherLayouts from './layouts/OtherLayouts';
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <div className="bottom-0">
-        <Footer />
-      </div>
-    </div>
-  );
-};
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <HomeLayout>
+            <Home />
+          </HomeLayout>
+        }
+        />
+        <Route path="/regions" element={
+          <OtherLayouts>
+            <Regions />
+          </OtherLayouts>
+        }
+        />
+        <Route path="*" element={
+          <OtherLayouts>
+            <NotFound />
+          </OtherLayouts>
+        }
+        />
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
-export default App;
+export default App
