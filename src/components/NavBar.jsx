@@ -5,10 +5,11 @@ import MobileLogo from "./MobileLogo";
 const NavBar = () => {
   return (
    <div>
-      <div>
+      <Link to='/'>
         < DesktopLogo />
         <MobileLogo />
-      </div>
+      </Link>
+      <NavLink to={'/'}><Bras /></NavLink>
    </div>
   );
 }
